@@ -1,4 +1,4 @@
-using DemoPRN1.Models;
+﻿using DemoPRN1.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoPRN1
@@ -12,7 +12,16 @@ namespace DemoPRN1
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddDbContext<PJPRN221Context>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
+
+            // Add session service
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set thời gian session timeout
+                options.Cookie.HttpOnly = true; // Chỉ dùng qua HTTP
+                options.Cookie.IsEssential = true; // Đảm bảo session luôn có trong mọi yêu cầu
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -28,12 +37,18 @@ namespace DemoPRN1
 
             app.UseRouting();
 
+            // Add session middleware
+            app.UseSession();
+
             app.UseAuthorization();
+
+            // Redirect to login page by default
             app.MapGet("/", async context =>
             {
-                context.Response.Redirect("/Books/index");
+                context.Response.Redirect("/Accounts/Login");
                 await Task.CompletedTask;
             });
+
             app.MapRazorPages();
 
             app.Run();
