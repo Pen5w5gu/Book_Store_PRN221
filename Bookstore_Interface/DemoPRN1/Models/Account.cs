@@ -7,6 +7,7 @@ namespace DemoPRN1.Models
     {
         public Account()
         {
+            Bookratings = new HashSet<Bookrating>();
             Bookstores = new HashSet<Bookstore>();
             Oders = new HashSet<Oder>();
         }
@@ -23,6 +24,7 @@ namespace DemoPRN1.Models
         public int? RoleId { get; set; }
 
         public virtual Role? Role { get; set; }
+        public virtual ICollection<Bookrating> Bookratings { get; set; }
         public virtual ICollection<Bookstore> Bookstores { get; set; }
         public virtual ICollection<Oder> Oders { get; set; }
     }

@@ -9,51 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DemoPRN1
 build_property.RootNamespace = DemoPRN1
-build_property.ProjectDir = D:\Code\html\BookStore\Bookstore_Interface\DemoPRN1\
+build_property.ProjectDir = D:\IMPORTANT\FPT\ki_7\Prn221\project\REALPROJECT\Book_Store_PRN221\Bookstore_Interface\DemoPRN1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Code\html\BookStore\Bookstore_Interface\DemoPRN1
+build_property.MSBuildProjectDirectory = D:\IMPORTANT\FPT\ki_7\Prn221\project\REALPROJECT\Book_Store_PRN221\Bookstore_Interface\DemoPRN1
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Books/Create.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Books/Index.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Books/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Books/Update.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Books/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Error.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Custommer/BookDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tbWVyXEJvb2tEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Custommer/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tbWVyXEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Custommer/ListBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tbWVyXExpc3RCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Index.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Privacy.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/_ViewImports.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/_ViewStart.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/html/BookStore/Bookstore_Interface/DemoPRN1/Pages/Shared/_Layout.cshtml]
+[D:/IMPORTANT/FPT/ki_7/Prn221/project/REALPROJECT/Book_Store_PRN221/Bookstore_Interface/DemoPRN1/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-kax6hdaq86

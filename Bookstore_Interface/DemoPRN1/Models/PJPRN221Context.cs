@@ -27,11 +27,11 @@ namespace DemoPRN1.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var builder = new ConfigurationBuilder()
-                               .SetBasePath(Directory.GetCurrentDirectory())
-                               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            IConfigurationRoot configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyCnn"));
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("server =localhost; database = PJPRN221;uid=sa;pwd=123;TrustServerCertificate=true");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -65,7 +65,7 @@ namespace DemoPRN1.Models
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Accounts)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__Account__Role_ID__267ABA7A");
+                    .HasConstraintName("FK__Account__Role_ID__398D8EEE");
             });
 
             modelBuilder.Entity<Book>(entity =>
@@ -96,29 +96,36 @@ namespace DemoPRN1.Models
                 entity.HasOne(d => d.BookStore)
                     .WithMany(p => p.Books)
                     .HasForeignKey(d => d.BookStoreId)
-                    .HasConstraintName("FK__Books__BookStore__2E1BDC42");
+                    .HasConstraintName("FK__Books__BookStore__412EB0B6");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Books)
                     .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK__Books__Category___2F10007B");
+                    .HasConstraintName("FK__Books__Category___4222D4EF");
             });
 
             modelBuilder.Entity<Bookrating>(entity =>
             {
                 entity.HasKey(e => e.RatingId)
-                    .HasName("PK__Bookrati__BE48C8457D67B2B0");
+                    .HasName("PK__Bookrati__BE48C845594AFDD9");
 
                 entity.ToTable("Bookrating");
 
                 entity.Property(e => e.RatingId).HasColumnName("Rating_Id");
 
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
                 entity.Property(e => e.BookId).HasColumnName("Book_Id");
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.Bookratings)
+                    .HasForeignKey(d => d.AccountId)
+                    .HasConstraintName("FK__Bookratin__Accou__45F365D3");
 
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.Bookratings)
                     .HasForeignKey(d => d.BookId)
-                    .HasConstraintName("FK__Bookratin__Book___31EC6D26");
+                    .HasConstraintName("FK__Bookratin__Book___44FF419A");
             });
 
             modelBuilder.Entity<Bookstore>(entity =>
@@ -134,7 +141,7 @@ namespace DemoPRN1.Models
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Bookstores)
                     .HasForeignKey(d => d.AccountId)
-                    .HasConstraintName("FK__Bookstore__Accou__29572725");
+                    .HasConstraintName("FK__Bookstore__Accou__3C69FB99");
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -147,7 +154,7 @@ namespace DemoPRN1.Models
             modelBuilder.Entity<Oder>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__Oders__F1E4639BC63BBBC1");
+                    .HasName("PK__Oders__F1E4639B0C78FB56");
 
                 entity.Property(e => e.OrderId).HasColumnName("Order_ID");
 
@@ -155,18 +162,25 @@ namespace DemoPRN1.Models
 
                 entity.Property(e => e.CreateAt).HasColumnType("datetime");
 
+                entity.Property(e => e.OrderdetailsId).HasColumnName("Orderdetails_ID");
+
                 entity.Property(e => e.UpdateAt).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Oders)
                     .HasForeignKey(d => d.AccountId)
-                    .HasConstraintName("FK__Oders__Account_I__34C8D9D1");
+                    .HasConstraintName("FK__Oders__Account_I__4BAC3F29");
+
+                entity.HasOne(d => d.Orderdetails)
+                    .WithMany(p => p.Oders)
+                    .HasForeignKey(d => d.OrderdetailsId)
+                    .HasConstraintName("FK__Oders__Orderdeta__4CA06362");
             });
 
             modelBuilder.Entity<Oderdetail>(entity =>
             {
                 entity.HasKey(e => e.OrderdetailsId)
-                    .HasName("PK__Oderdeta__CC54DA73D90AE48D");
+                    .HasName("PK__Oderdeta__CC54DA73F25A7CF4");
 
                 entity.Property(e => e.OrderdetailsId).HasColumnName("Orderdetails_ID");
 
@@ -181,7 +195,7 @@ namespace DemoPRN1.Models
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.Oderdetails)
                     .HasForeignKey(d => d.BookId)
-                    .HasConstraintName("FK__Oderdetai__Book___37A5467C");
+                    .HasConstraintName("FK__Oderdetai__Book___48CFD27E");
             });
 
             modelBuilder.Entity<Role>(entity =>

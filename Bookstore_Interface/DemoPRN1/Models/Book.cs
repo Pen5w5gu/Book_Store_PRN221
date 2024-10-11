@@ -12,6 +12,7 @@ namespace DemoPRN1.Models
         }
 
         public int BookId { get; set; }
+        public string? Image { get; set; }
         public string? BookTitle { get; set; }
         public string? Author { get; set; }
         public string? Description { get; set; }
@@ -25,7 +26,6 @@ namespace DemoPRN1.Models
         public DateTime? UpdateAt { get; set; }
         public int? BookStoreId { get; set; }
         public int? CategoryId { get; set; }
-        public string? Image { get; set; }
 
         public virtual Bookstore? BookStore { get; set; }
         public virtual Category? Category { get; set; }

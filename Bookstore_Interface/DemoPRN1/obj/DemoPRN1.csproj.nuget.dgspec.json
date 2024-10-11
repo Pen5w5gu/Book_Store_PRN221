@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\html\\BookStore\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj": {}
+    "D:\\IMPORTANT\\FPT\\ki_7\\Prn221\\project\\REALPROJECT\\Book_Store_PRN221\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj": {}
   },
   "projects": {
-    "D:\\Code\\html\\BookStore\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj": {
+    "D:\\IMPORTANT\\FPT\\ki_7\\Prn221\\project\\REALPROJECT\\Book_Store_PRN221\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\html\\BookStore\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj",
+        "projectUniqueName": "D:\\IMPORTANT\\FPT\\ki_7\\Prn221\\project\\REALPROJECT\\Book_Store_PRN221\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj",
         "projectName": "DemoPRN1",
-        "projectPath": "D:\\Code\\html\\BookStore\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj",
-        "packagesPath": "C:\\Users\\quann\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\html\\BookStore\\Bookstore_Interface\\DemoPRN1\\obj\\",
+        "projectPath": "D:\\IMPORTANT\\FPT\\ki_7\\Prn221\\project\\REALPROJECT\\Book_Store_PRN221\\Bookstore_Interface\\DemoPRN1\\DemoPRN1.csproj",
+        "packagesPath": "C:\\Users\\Mr Viet\\.nuget\\packages\\",
+        "outputPath": "D:\\IMPORTANT\\FPT\\ki_7\\Prn221\\project\\REALPROJECT\\Book_Store_PRN221\\Bookstore_Interface\\DemoPRN1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\quann\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mr Viet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,24 +72,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.33, 6.0.33]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -98,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

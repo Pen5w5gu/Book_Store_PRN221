@@ -10,7 +10,9 @@ namespace DemoPRN1.Models
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public int? AccountId { get; set; }
+        public int? OrderdetailsId { get; set; }
 
         public virtual Account? Account { get; set; }
+        public virtual Oderdetail? Orderdetails { get; set; }
     }
 }
