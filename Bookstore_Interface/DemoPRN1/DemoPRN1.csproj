@@ -5,18 +5,24 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Shared\_LayoutCustomer.cshtml" />
+  </ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.32" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.32">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.32" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Pages\Admin\" />
-	</ItemGroup>
-	<ItemGroup>
+		
+	  <None Include="Pages\Admin\Wishlist\Index.cshtml" />
+	  <None Include="Pages\Shared\_LayoutCustomer.cshtml" />
 	  <None Include="wwwroot\js\demo\chart-area-demo.js" />
 	  <None Include="wwwroot\js\demo\chart-bar-demo.js" />
 	  <None Include="wwwroot\js\demo\chart-pie-demo.js" />
@@ -1854,5 +1860,11 @@
 	  <None Include="wwwroot\vendor\jquery\jquery.slim.js" />
 	  <None Include="wwwroot\vendor\jquery\jquery.slim.min.js" />
 	  <None Include="wwwroot\vendor\jquery\jquery.slim.min.map" />
+	</ItemGroup>
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Pages\Shared\_LayoutCustomer.cshtml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Pages\Shared\_LayoutCustomer.cshtml" />
 	</ItemGroup>
 </Project>
