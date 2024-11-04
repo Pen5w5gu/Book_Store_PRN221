@@ -13,14 +13,11 @@ namespace DemoPRN1.Pages.Books
 
         public void OnGet()
         {
-<<<<<<< HEAD
             int? userId = HttpContext.Session.GetInt32("UserId");         
              var bookStore = _context.Bookstores.Include(a => a.Books).FirstOrDefault(a => a.AccountId == userId.Value);
             Books = _context.Books.Include(b => b.Category).Where(b=>b.BookStoreId==bookStore.BookStoreId).ToList();
-=======
             int? userid=HttpContext.Session.GetInt32("UserId");
             Books = _context.Books.Include(b => b.Category).Where(b => b.BookStore.AccountId == userid).ToList();
->>>>>>> origin/Thang
         }
         public IActionResult OnPostDelete(int id) 
         {

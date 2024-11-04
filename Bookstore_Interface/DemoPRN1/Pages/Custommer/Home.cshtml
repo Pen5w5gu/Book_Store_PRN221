@@ -87,11 +87,15 @@
 
 									<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Giỏ hàng
 										</span></a>
-									<li class="menu-item"><a href="profile.html"
+									<li class="menu-item">
+										<a asp-page="/Custommer/Profile"
 											class="nav-link btn btn-outline-dark rounded-pill m-0 icon icon-user"
 											target="_blank"><i class=""></i><span>Tài khoản</span></a>
 									</li>
-
+									<li class="menu-item">
+										<a asp-page="/Custommer/Logout"
+										   target="_blank"><i class=""></i><span>Logout</span></a>
+									</li>
 								</ul>
 
 								<div class="hamburger">
@@ -137,7 +141,7 @@
 										</a>
 									</div>
 								</div><!--banner-content-->
-								<img src="@Url.Content($"~/images/{item.Image}")" style="min-height: 672px; max-height: 672px;" alt="banner" class="banner-image">
+								<img src="@Url.Content(@item.Image)" style="min-height: 672px; max-height: 672px;" alt="banner" class="banner-image">
 							</div><!--slider-item-->
 					}	
 					</div>
@@ -190,7 +194,7 @@
 								<div class="col-md-3">
 									<div class="product-item">
 										<figure class="product-style">
-											<img src="@Url.Content($"~/images/{item.Image}")" alt="Books" class="product-item">
+											<img src="@Url.Content(@item.Image)"  alt="Books" class="product-item">
 											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">
 												Add to
 												Cart
@@ -217,8 +221,8 @@
 				<div class="col-md-12">
 
 					<div class="btn-wrap align-right">
-						<a href="#" class="btn-accent-arrow">Xem thêm<i
-								class="icon icon-ns-arrow-right"></i></a>
+						<a asp-page="/Custommer/ListBook" class="btn-accent-arrow">
+							Xem thêm<i class="icon icon-ns-arrow-right"></i></a>
 					</div>
 
 				</div>
@@ -253,7 +257,7 @@
 									<div class="col-md-3">
 										<div class="product-item">
 											<figure class="product-style">
-												<img src="@Url.Content($"~/images/{book.Image}")" style="max-height: 393.2px;" alt="Books" class="product-item">
+												<img src="@Url.Content(@book.Image)" style="max-height: 393.2px;" alt="Books" class="product-item">
 
 												<button type="button" class="add-to-cart"
 														data-product-tile="add-to-cart">
@@ -283,7 +287,7 @@
 									<div class="col-md-3">
 									<div class="product-item">
 										<figure class="product-style">
-													<img src="@Url.Content($"~/images/{book.Image}")" alt="Books" class="product-item">
+													<img src="@Url.Content(@book.Image)" alt="Books" class="product-item">
 											<button type="button" class="add-to-cart"
 												data-product-tile="add-to-cart">Add to
 												Cart</button>

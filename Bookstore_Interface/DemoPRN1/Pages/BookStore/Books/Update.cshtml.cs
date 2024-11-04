@@ -38,11 +38,6 @@ namespace DemoPRN1.Pages.Books
 
         public async Task<IActionResult> OnPost()
         {
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> origin/Thang
             if (ImageFile != null)
             {
                 string uploadFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
