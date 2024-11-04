@@ -25,7 +25,58 @@
 	<link rel="stylesheet" type="text/css" href="~/icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="~/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="~/css/style.css">
+	<style>
+		.col-md-3 {
+			display: flex;
+		}
 
+		.card-product-grid {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+			width: 100%;
+		}
+
+		.img-wrap img {
+			width: 100%;
+			height: auto;
+		}
+
+		.info-wrap {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.title {
+			min-height: 50px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+		}
+
+		.price-wrap {
+			margin-top: auto;
+		}
+
+		.button-row {
+			display: flex;
+			gap: 10px;
+		}
+
+			.button-row form {
+				flex: 1;
+			}
+
+			.button-row .btn {
+				width: 100%;
+			}
+
+	</style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
@@ -87,9 +138,10 @@
 
 									</li>
 
-									<a href="#" class="cart for-buy">
-										<i class="icon icon-clipboard"></i><span>
-											Cart
+									<a href="@Url.Page("/Custommer/Cart")" class="cart for-buy">
+										<i class="icon icon-clipboard"></i>
+										<span>
+											Cart (@(TempData["CartCount"] ?? 0))
 										</span>
 									</a>
 									<li class="menu-item">
@@ -146,9 +198,21 @@
 										@String.Format("{0:N0} VNĐ", Model.currentBook.Price)
 									</div>
 									<div class="btn-wrap">
-										<a href="#" class="btn-accent-arrow">
-											Add to card <i class="icon icon-ns-arrow-right"></i>
-										</a>
+										<div class="button-row">
+										<form method="post" asp-page-handler="AddToCart">
+											<input type="hidden" name="bookId" value="@Model.currentBook.BookId" />
+									
+											<input type="hidden" name="type" value="buy" />
+											<button type="submit" class="btn btn-block btn-primary">Buy</button>
+										</form>
+
+										<form method="post" asp-page-handler="AddToCart">
+											<input type="hidden" name="bookId" value="@Model.currentBook.BookId" />
+											<input type="hidden" name="type" value="rent" />
+											<button style="background-color:indianred" type="submit" class="btn btn-block btn-primary">Rent</button>
+										</form>
+										</div>
+
 									</div>
 								</div>
 							</div>
@@ -209,7 +273,7 @@
 
 					<div class="footer-item">
 						<div class="company-brand">
-							<img src="images/main-logo.png" alt="logo" class="footer-logo">
+							<img src="~images/main-logo.png" alt="logo" class="footer-logo">
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus
 								nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames
