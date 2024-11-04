@@ -52,8 +52,12 @@ namespace DemoPRN1.Pages.Books
             }
             newBook.Status = false;
             Book b = _context.Books.FirstOrDefault(b => b.Isbn.Equals(newBook.Isbn));
+<<<<<<< HEAD
             if (b != null && b.Status == true)
             {
+=======
+            if (b != null && b.Status==true) {
+>>>>>>> origin/Thang
                 newBook.Status = true;
             }
             newBook.RentalQuantity = 0;
