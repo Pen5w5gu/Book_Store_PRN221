@@ -52,11 +52,12 @@ namespace DemoPRN1.Pages.Accounts
             if (user.RoleId==1)
             {
                 HttpContext.Session.SetInt32("UserId", user.AccountId);
-                return RedirectToPage("/Admin/Index");
+                return RedirectToPage("/Admin/Categories/ViewCategory");
 			}
             //user la khach hang
             if (user.RoleId == 2)
             {
+
                 HttpContext.Session.SetInt32("UserId", user.AccountId);
                 return RedirectToPage("/Custommer/Home");
             }

@@ -7,13 +7,15 @@ namespace DemoPRN1.Pages.Books
 {
     public class IndexModel : PageModel
     {
-        private readonly PJPRN221Context _context=new PJPRN221Context();
+        private readonly PJPRN221Context _context = new PJPRN221Context();
 
         public List<Book> Books { get; set; }
-        
+
         public void OnGet()
         {
-            Books = _context.Books.Include(b=>b.Category).ToList();
+            int? userId = HttpContext.Session.GetInt32("UserId");         
+             var bookStore = _context.Bookstores.Include(a => a.Books).FirstOrDefault(a => a.AccountId == userId.Value);
+            Books = _context.Books.Include(b => b.Category).Where(b=>b.BookStoreId==bookStore.BookStoreId).ToList();
         }
         public IActionResult OnPostDelete(int id) // Phương thức không sử dụng async
         {

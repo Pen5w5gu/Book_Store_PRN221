@@ -41,7 +41,7 @@
 
 					<div class="col-md-2">
 						<div class="main-logo">
-							<a href="index.html"><img src="~/images/main-logo.png" alt="logo"></a>
+							<a asp-page="/Custommer/Home"><img src="~/images/main-logo.png" alt="logo"></a>
 						</div>
 
 					</div>
@@ -79,11 +79,15 @@
 
 									<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart
 										</span></a>
-									<li class="menu-item"><a href="profile.html"
+									<li class="menu-item"><a asp-page="/Custommer/Profile"
 											class="nav-link btn btn-outline-dark rounded-pill m-0 icon icon-user"
 											target="_blank"><i class=""></i><span>Account</span></a>
 									</li>
-
+									<li class="menu-item">
+										<a asp-page="/Custommer/Logout"
+										  
+										   target="_blank"><i class=""></i><span>Logout</span></a>
+									</li>
 								</ul>
 
 								<div class="hamburger">
@@ -258,7 +262,7 @@
 				<div class="col-md-12">
 
 					<div class="btn-wrap align-right">
-						<a href="#" class="btn-accent-arrow">View all products <i
+						<a 	<a asp-page="/Custommer/ListBook" class="btn-accent-arrow">View all products <i
 								class="icon icon-ns-arrow-right"></i></a>
 					</div>
 

@@ -67,7 +67,7 @@ namespace DemoPRN1.Pages.Accounts
             _context.Add(newAccount);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Account/Login");
+            return RedirectToPage("/Accounts/Login");
         }      
     }
 }

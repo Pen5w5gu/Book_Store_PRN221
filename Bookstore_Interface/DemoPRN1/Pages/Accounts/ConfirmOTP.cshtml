@@ -60,6 +60,15 @@
                                 string otp = random.Next(100000, 999999).ToString();
                                 return otp;
                             }
+                        }  
+                        @if (!ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger">
+                                @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <p>@error.ErrorMessage</p>
+                                }
+                            </div>
                         }
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="small fw-bold mt-2 pt-1 mb-0">

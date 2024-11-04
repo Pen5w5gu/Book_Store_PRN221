@@ -25,7 +25,7 @@ namespace DemoPRN1.Pages.Books
         public IFormFile ImageFile { get; set; }
         public async Task<IActionResult> OnGet(int id)
         {
-           Categories = _context.Categories.ToList();
+            Categories = _context.Categories.ToList();
 
             updateBook = _context.Books.Include(b => b.Category).FirstOrDefault(b => b.BookId == id);
 
@@ -38,10 +38,7 @@ namespace DemoPRN1.Pages.Books
 
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+
             if (ImageFile != null)
             {
                 string uploadFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");

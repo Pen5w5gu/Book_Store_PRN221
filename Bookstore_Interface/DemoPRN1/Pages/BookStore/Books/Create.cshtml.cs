@@ -17,14 +17,14 @@ namespace DemoPRN1.Pages.Books
         }
 
         [BindProperty]
-        public Book newBook { get; set; }=new Book();
+        public Book newBook { get; set; } = new Book();
         [BindProperty]
         public List<Category> Categories { get; set; }
         [BindProperty]
         public IFormFile ImageFile { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            Categories =  _context.Categories.ToList();
+            Categories = _context.Categories.ToList();
             return Page();
         }
 
@@ -50,7 +50,12 @@ namespace DemoPRN1.Pages.Books
 
                 newBook.Image = "~/Images/" + fileName;
             }
-            newBook.Status = true;
+            newBook.Status = false;
+            Book b = _context.Books.FirstOrDefault(b => b.Isbn.Equals(newBook.Isbn));
+            if (b != null && b.Status == true)
+            {
+                newBook.Status = true;
+            }
             newBook.RentalQuantity = 0;
             newBook.CreateAt = DateTime.Now;
             newBook.UpdateAt = DateTime.Now;
@@ -70,8 +75,8 @@ namespace DemoPRN1.Pages.Books
                     newBook.BookStoreId = account.Bookstores.First().BookStoreId;
                 }
             }
-                _context.Books.Add(newBook);
-             _context.SaveChanges();
+            _context.Books.Add(newBook);
+            _context.SaveChanges();
 
             return RedirectToPage("/BookStore/Books/Index");
         }

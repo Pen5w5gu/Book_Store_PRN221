@@ -5,7 +5,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
 
@@ -63,14 +63,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="Category.html">
+                <a class="nav-link" asp-page="/Admin/Categories/ViewCategory">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Category</span>
                 </a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="wishlistbook.html">
+                <a class="nav-link" asp-page="/Admin/Wishlist/Index">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Wishlist Books</span>
                 </a>
@@ -78,7 +78,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-                <a class="nav-link" href="book.html">
+                <a class="nav-link" asp-page="/Admin/BookStore/Index">
                     <i class="fas fa-fw fa-table"></i>
                     <span>BookStore</span>
                 </a>
@@ -89,6 +89,7 @@
                     <span>Account</span>
                 </a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -307,7 +308,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" asp-page="/Custommer/Logout" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
