@@ -50,7 +50,11 @@ namespace DemoPRN1.Pages.Books
 
                 newBook.Image = "~/Images/" + fileName;
             }
-            newBook.Status = true;
+            newBook.Status = false;
+            Book b = _context.Books.FirstOrDefault(b => b.Isbn.Equals(newBook.Isbn));
+            if (b != null && b.Status==true) {
+                newBook.Status = true;
+            }
             newBook.RentalQuantity = 0;
             newBook.CreateAt = DateTime.Now;
             newBook.UpdateAt = DateTime.Now;

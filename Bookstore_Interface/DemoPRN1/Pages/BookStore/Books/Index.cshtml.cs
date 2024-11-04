@@ -13,9 +13,10 @@ namespace DemoPRN1.Pages.Books
         
         public void OnGet()
         {
-            Books = _context.Books.Include(b=>b.Category).ToList();
+            int? userid=HttpContext.Session.GetInt32("UserId");
+            Books = _context.Books.Include(b => b.Category).Where(b => b.BookStore.AccountId == userid).ToList();
         }
-        public IActionResult OnPostDelete(int id) // Phương thức không sử dụng async
+        public IActionResult OnPostDelete(int id) 
         {
             var book = _context.Books.FirstOrDefault(b => b.BookId == id);
             if (book == null)
@@ -28,5 +29,20 @@ namespace DemoPRN1.Pages.Books
 
             return RedirectToPage("/BookStore/Books/Index");
         }
+        [HttpPost]
+        public IActionResult OnPut(int id, int quantity)
+        {
+            var book = _context.Books.FirstOrDefault(b => b.BookId == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            book.Quantity += quantity;
+            _context.Books.Update(book);
+            _context.SaveChanges();
+
+            return RedirectToPage("/BookStore/Books/Index");
+        }
+
     }
 }

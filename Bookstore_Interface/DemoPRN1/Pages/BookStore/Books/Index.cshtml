@@ -74,9 +74,14 @@
                                  <td>@item.Author</td>
                                  <td>@item.CreateAt</td>
                                  <td>@item.UpdateAt</td>
-                                 <td>
-                                     @(item.Status.HasValue ? (item.Status.Value ? "Kha dung" : "Khong kha dung") : "Không xác định")
-                                 </td>
+                            <td>
+                                @{
+                                    string statusText = item.Status.HasValue ? (item.Status.Value ? "Khả dụng" : "Đang chờ duyệt") : "Không xác định";
+                                    string statusClass = item.Status.HasValue ? (item.Status.Value ? "text-success" : "text-warning") : "text-muted";
+                                }
+                                <span class="@statusClass">@statusText</span>
+                            </td>
+
 
 
                                  <td>@item.Category.CategoryName</td>
@@ -111,4 +116,5 @@
         </div>
     </div>
 
-</div>
+
+</html>
