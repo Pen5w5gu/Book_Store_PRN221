@@ -7,12 +7,9 @@
         <input type="hidden" asp-for="updateBook.BookId" />
         <input type="hidden" asp-for="updateBook.BookStoreId" />
         <input type="hidden" asp-for="updateBook.CreateAt" />
-
-
-=======
+        <input type="hidden" asp-for="updateBook.Status" />
         <input type="hidden" asp-for="updateBook.Quantity"/>
         <input type="hidden" asp-for="updateBook.RentalQuantity"/>
-
         <div class="form-group">
             <label asp-for="updateBook.BookTitle"></label>
             <input asp-for="updateBook.BookTitle" class="form-control" />
@@ -63,19 +60,9 @@
             <span asp-validation-for="updateBook.Price" class="text-danger"></span>
         </div>
 
-<<<<<<< HEAD
-        <div class="form-group">
-            <label asp-for="updateBook.Quantity"></label>
-            <input asp-for="updateBook.Quantity" class="form-control" />
-            <span asp-validation-for="updateBook.Quantity" class="text-danger"></span>
-        </div>
+        
 
-        <div class="form-group">
-            <label asp-for="updateBook.RentalQuantity"></label>
-            <input asp-for="updateBook.RentalQuantity" class="form-control" />
-            <span asp-validation-for="updateBook.RentalQuantity" class="text-danger"></span>
-        </div>
-
+       
 
         <div class="form-group">
             <label asp-for="updateBook.RentalPrice"></label>
@@ -83,21 +70,12 @@
             <span asp-validation-for="updateBook.RentalPrice" class="text-danger"></span>
         </div>
 
-
-        @* <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" name="updateBook.Status" value="true" @(Model.updateBook.Status == true ? "checked" : "") />
-        <input type="hidden" name="updateBook.Status" value="false" /> <!-- Hidden field for false -->
-        <label for="Status" class="form-check-label">Status</label>
-        <span asp-validation-for="updateBook.Status" class="text-danger"></span>
-        </div> *@
-
          @* <div class="form-group form-check">
              <input type="checkbox" class="form-check-input" name="updateBook.Status" value="true" @(Model.updateBook.Status == true ? "checked" : "") />
              <input type="hidden" name="updateBook.Status" value="false" /> <!-- Hidden field for false -->
              <label for="Status" class="form-check-label">Status</label>
              <span asp-validation-for="updateBook.Status" class="text-danger"></span>
          </div> *@
-
 
         <div class="form-group">
             <label asp-for="updateBook.Isbn"></label>
