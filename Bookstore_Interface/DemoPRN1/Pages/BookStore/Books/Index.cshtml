@@ -87,25 +87,33 @@
                                  <td>@item.Category.CategoryName</td>
                                 <td>@item.Quantity</td>
                                 <td>@item.RentalQuantity</td>
-                                 <td>
-                                     <div class="tableFunc">
-                                         <a href="/BookStore/Books/Update?id=@item.BookId" class="btn btn-primary btn-icon-split">
-                                             <span class="icon text-white-50">
-                                                 <i class="fa-solid fa-pen-to-square"></i>
-                                             </span>
-                                         </a>
+                            <td>
+                                <div class="tableFunc d-flex gap-2">
+                                    <a href="/BookStore/Books/Update?id=@item.BookId" class="btn btn-primary btn-icon-split btn-sm">
+                                        <span class="icon text-white-50">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </span>
+                                    </a>
 
-                                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.BookId" style="display:inline;">
-                                            <button type="submit" class="btn btn-danger btn-icon-split" onclick="return confirm('Bạn có chắc chắn muốn xóa sách này?');">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                            </button>
-                                        </form>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.BookId" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-icon-split btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa sách này?');">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </form>
 
-
-                                     </div>
-                                 </td>
+                                    <form method="post" asp-page-handler="AddQuantity" style="display:inline;" class="quantity-form">
+                                        <input type="hidden" name="bookId" value="@item.BookId" />
+                                        <input type="hidden" name="quantity" class="quantity-input" />
+                                        <button type="button" class="btn btn-success btn-icon-split btn-sm" onclick="promptQuantity(this)">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
                              </tr>
                          }
 
@@ -115,6 +123,17 @@
             </div>
         </div>
     </div>
-
+<script>
+    function promptQuantity(button) {
+        const quantity = prompt("Nhập số lượng:");
+        if (quantity !== null && quantity.trim() !== "" && !isNaN(quantity) && Number(quantity) > 0) {
+            const form = button.closest('.quantity-form');
+            form.querySelector('.quantity-input').value = quantity;
+            form.submit();
+        } else {
+            alert("Vui lòng nhập một số hợp lệ.");
+        }
+    }
+</script>
 
 </html>
