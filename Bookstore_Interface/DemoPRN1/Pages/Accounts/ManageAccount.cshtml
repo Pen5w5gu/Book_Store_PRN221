@@ -332,12 +332,12 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
 
-                            <a href="#" class="btn btn-success btn-icon-split">
+                            <a href="/Accounts/AddAdmin" class="btn btn-success btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fa-solid fa-plus"></i>
 
                                 </span>
-                                <span class="text">Thêm Tài khoản</span>
+                                <span class="text">Thêm Tài khoản admin</span>
                             </a>
                         </div>
                         <div class="card-body">
@@ -379,30 +379,34 @@
                                                 <td>@item.Role.RoleName</td>
                                                 <td>
                                                     <div class="tableFunc">
-                                                        @if (item.Status == false)
+                                                        @if (item.RoleId != 1)
                                                         {
-                                                            <form method="post" asp-page-handler="Unban" style="display:inline;">
-                                                                <input type="hidden" name="accountId" value="@item.AccountId" />
-                                                                <button type="submit" class="btn btn-success btn-icon-split" title="Gỡ cấm">
-                                                                    <span class="icon text-white-50">
-                                                                        <i class="fa-solid fa-user-check"></i>
-                                                                    </span>
-                                                                </button>
-                                                            </form>
-                                                        }
-                                                        else
-                                                        {
-                                                            <form method="post" asp-page-handler="Ban" style="display:inline;">
-                                                                <input type="hidden" name="accountId" value="@item.AccountId" />
-                                                                <button type="submit" class="btn btn-warning btn-icon-split" title="Cấm">
-                                                                    <span class="icon text-white-50">
-                                                                        <i class="fa-solid fa-user-slash"></i>
-                                                                    </span>
-                                                                </button>
-                                                            </form>
+                                                            @if (item.Status == false)
+                                                            {
+                                                                <form method="post" asp-page-handler="Unban" style="display:inline;">
+                                                                    <input type="hidden" name="accountId" value="@item.AccountId" />
+                                                                    <button type="submit" class="btn btn-success btn-icon-split" title="Gỡ cấm">
+                                                                        <span class="icon text-white-50">
+                                                                            <i class="fa-solid fa-user-check"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </form>
+                                                            }
+                                                            else
+                                                            {
+                                                                <form method="post" asp-page-handler="Ban" style="display:inline;">
+                                                                    <input type="hidden" name="accountId" value="@item.AccountId" />
+                                                                    <button type="submit" class="btn btn-warning btn-icon-split" title="Cấm">
+                                                                        <span class="icon text-white-50">
+                                                                            <i class="fa-solid fa-user-slash"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </form>
+                                                            }
                                                         }
                                                     </div>
                                                 </td>
+
                                             </tr>
                                         }
 

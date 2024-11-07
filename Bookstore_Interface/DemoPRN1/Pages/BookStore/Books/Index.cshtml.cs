@@ -28,23 +28,20 @@ namespace DemoPRN1.Pages.Books
             }
 
             _context.Books.Remove(book);
-            _context.SaveChanges(); // Lưu thay đổi
+            _context.SaveChanges(); 
 
             return RedirectToPage("/BookStore/Books/Index");
         }
-        [HttpPost]
-        public IActionResult OnPut(int id, int quantity)
+        public async Task<IActionResult> OnPostAddQuantity(int bookId, int quantity)
         {
-            var book = _context.Books.FirstOrDefault(b => b.BookId == id);
-            if (book == null)
+            var book = await _context.Books.FindAsync(bookId);
+            if (book != null)
             {
-                return NotFound();
+                book.Quantity += quantity;
+                _context.Books.Update(book);
+                 _context.SaveChanges(); 
             }
-            book.Quantity += quantity;
-            _context.Books.Update(book);
-            _context.SaveChanges();
-
-            return RedirectToPage("/BookStore/Books/Index");
+            return RedirectToPage();
         }
 
     }
