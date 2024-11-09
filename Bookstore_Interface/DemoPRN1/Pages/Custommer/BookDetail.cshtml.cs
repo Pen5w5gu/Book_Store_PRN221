@@ -15,6 +15,8 @@ namespace DemoPRN1.Pages.Custommer
 
 		public Book currentBook;
 
+		public Bookstore bookstore;
+
 		public List<Book> recomendBooks;
 
 		public BookDetailModel(PJPRN221Context context)
@@ -25,7 +27,7 @@ namespace DemoPRN1.Pages.Custommer
 		{
 			if (bookId != null)
 			{
-				currentBook = _context.Books.FirstOrDefault(b => b.BookId == bookId);
+				currentBook = _context.Books.Include(b => b.BookStore).FirstOrDefault(b => b.BookId == bookId);
 			}
 
 			//phần session để lưu Cart
@@ -66,7 +68,7 @@ namespace DemoPRN1.Pages.Custommer
 
 			TempData["CartCount"] = cartItems.Count;
 
-			return await OnGetAsync(bookId);
+			return await OnGetAsync(bookId);  
 		}
 
 	}

@@ -1,8 +1,72 @@
 ﻿@page
-@model DemoPRN1.Pages.Custommer.BookDetailModel
+@model DemoPRN1.Pages.Custommer.ListBookByBookstoreModel
 @{
+	ViewData["Title"] = "Book List";
 	Layout = null;
 }
+
+<style>
+	.col-md-3 {
+		display: flex;
+	}
+
+	.card-product-grid {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+	}
+
+	.img-wrap img {
+		width: 100%;
+		height: auto;
+	}
+
+	.info-wrap {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.title {
+		min-height: 50px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+
+	.bookstoreTitle {
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.bookTitleWrapper {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.price-wrap {
+		margin-top: auto;
+	}
+
+	.button-row {
+		display: flex;
+		gap: 10px;
+	}
+
+		.button-row form {
+			flex: 1;
+		}
+
+		.button-row .btn {
+			width: 100%;
+		}
+
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,70 +83,17 @@
 	<meta name="description" content="">
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+		  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="~/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="~/icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="~/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="~/css/style.css">
-	<style>
-		.col-md-3 {
-			display: flex;
-		}
 
-		.card-product-grid {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			height: 100%;
-			width: 100%;
-		}
-
-		.img-wrap img {
-			width: 100%;
-			height: auto;
-		}
-
-		.info-wrap {
-			flex-grow: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
-
-		.title {
-			min-height: 50px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 2;
-		}
-
-		.price-wrap {
-			margin-top: auto;
-		}
-
-		.button-row {
-			display: flex;
-			gap: 10px;
-		}
-
-			.button-row form {
-				flex: 1;
-			}
-
-			.button-row .btn {
-				width: 100%;
-			}
-
-	</style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
-
 	<div id="header-wrap">
-
 
 		<header id="header">
 			<div class="container-fluid">
@@ -92,6 +103,7 @@
 						<div class="main-logo">
 							<a href="@Url.Page("/Custommer/Home")"><img src="~/Images/main-logo.png" alt="logo"></a>
 						</div>
+
 					</div>
 
 					<div class="col-md-10">
@@ -100,7 +112,6 @@
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
 									<div class="action-menu">
-
 										<div class="search-bar">
 											<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
 												<i class="icon icon-search"></i>
@@ -124,15 +135,6 @@
 											<li class="menu-item">
 												<a href="#special-offer" class="nav-link">Offer</a>
 											</li>
-											<li class="menu-item">
-												<a href="#latest-blog" class="nav-link">Articles</a>
-											</li>
-											<li class="menu-item">
-												<a href="#download-app" class="nav-link">
-													Download
-													App
-												</a>
-											</li>
 										</ul>
 
 									</li>
@@ -143,7 +145,9 @@
 											Cart (@(TempData["CartCount"] ?? 0))
 										</span>
 									</a>
-									
+
+
+
 									<li class="menu-item">
 										<a asp-page="/Custommer/Profile"
 										   class="nav-link btn btn-outline-dark rounded-pill m-0 icon icon-user"
@@ -172,113 +176,123 @@
 		</header>
 
 	</div><!--header-wrap-->
-
-	<section id="book-detail" style="padding-bottom: 0;" class="leaf-pattern-overlay">
-		<div class="corner-pattern-overlay"></div>
+	<section id="popular-books" class="bookshelf py-5 my-5">
 		<div class="container">
-			<div class="row justify-content-center">
-
-				<div class="col-md-8">
-
-					<div class="row">
-
-						<div class="col-md-6">
-							<figure class="products-thumb">
-								<img src="@Url.Content(Model.currentBook.Image)" alt="book" class="single-image">
-							</figure>
-						</div>
-
-						<div class="col-md-6">
-							<div class="product-entry">
-								<h2 class="section-title divider">Best Selling Book</h2>
-
-								<div class="products-content">
-									<div class="author-name">By @Model.currentBook.Author</div>
-									<h3 class="item-title">@Model.currentBook.BookTitle</h3>
-									<p>
-										@Model.currentBook.Description
-									</p>
-									<div class="item-price">
-										@String.Format("{0:N0} VNĐ", Model.currentBook.Price)
-									</div>
-									<a asp-page="/Custommer/ListBookByBookstore"
-									   asp-route-bookStoreId="@Model.currentBook.BookStoreId"
-									   class="btn-accent-arrow">
-										@Model.currentBook.BookStore.StoreName
-									</a>
-									<div class="btn-wrap">
-										<div class="button-row">
-										<form method="post" asp-page-handler="AddToCart">
-											<input type="hidden" name="bookId" value="@Model.currentBook.BookId" />
-									
-											<input type="hidden" name="type" value="buy" />
-											<button type="submit" class="btn btn-block btn-primary">Buy</button>
-										</form>
-
-										<form method="post" asp-page-handler="AddToCart">
-											<input type="hidden" name="bookId" value="@Model.currentBook.BookId" />
-											<input type="hidden" name="type" value="rent" />
-											<button style="background-color:indianred" type="submit" class="btn btn-block btn-primary">Rent</button>
-										</form>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<!-- / row -->
-
-				</div>
-
+			<div class="bookTitleWrapper">
+				<h2 class="bookstoreTitle">Store Page</h2>
 			</div>
-		</div>
-	</section>
-
-	<section id="special-offer" class="bookshelf pb-5 mb-5">
-
-		<div class="section-header align-center">
-			<div class="title">
-				<span>Grab your opportunity</span>
-			</div>
-			<h2 class="section-title">Related Books</h2>
-		</div>
-
-		<div class="container">
 			<div class="row">
-				<div class="inner-content">
-					<div class="product-list" data-aos="fade-up">
-						<div class="grid product-grid">
+				<aside class="col-md-3">
+					<div class="card">
+						<article class="filter-group">
+							<header class="card-header">
+								<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+									<i class="icon-control fa fa-chevron-down"></i>
+									<h6 class="title">Category</h6>
+								</a>
+							</header>
+							<div class="filter-content collapse show" id="collapse_1">
+								<div class="card-body">
+									<ul class="list-menu">
+										<a asp-page="ListBookByBookstore" asp-route-bookStoreId="@Model.BookStoreId">All</a>
 
-							@foreach(var book in Model.recomendBooks)
-							{
-							<div class="product-item">
-								<figure class="product-style">
-										<img src="@Url.Content(@book.Image)" alt="Books" class="product-item">
-										<a href="@Url.Page("/Custommer/BookDetail", new { bookId = book.BookId })" class="btn add-to-cart">View Detail</a>
-									</figure>
-								<figcaption>
-									<h3>@book.BookTitle</h3>
-									<span>@book.Author</span>
-									<div class="item-price">
-											<span class="">@String.Format("{0:N0} VNĐ", book.Price)</span>
-									</div>
-									<a asp-page="/Custommer/ListBookByBookstore"
-										   asp-route-bookStoreId="@Model.currentBook.BookStoreId"
-										   class="btn-accent-arrow">
-											@Model.currentBook.BookStore.StoreName
-									</a>
-								</figcaption>
+										@foreach (var category in Model.Categories)
+										{
+											<li>
+												<a asp-page="ListBookByBookstore" asp-route-bookStoreId="@Model.BookStoreId" asp-route-categoryId="@category.CategoryId">@category.CategoryName</a>
+											</li>
+										}
+									</ul>
+
+								</div> <!-- card-body.// -->
 							</div>
+						</article> <!-- filter-group  .// -->
+						<!-- filter-group .// -->
+
+					</div> <!-- card.// -->
+
+				</aside>
+				<main class="col-md-9">
+
+					<header class="border-bottom mb-4 pb-3">
+						<div class="form-inline">
+							<span class="mr-md-auto">@Model.Books.Count items found </span>
+							<select class="mr-2 form-control">
+								<option>Latest items</option>
+								<option>Trending</option>
+								<option>Most Popular</option>
+								<option>Cheapest</option>
+							</select>
+						</div>
+					</header><!-- sect-heading -->
+					@* view sách *@
+					<div class="row">
+						<div class="row">
+							@foreach (var book in Model.Books)
+							{
+								<div class="col-md-3">
+									<figure class="card card-product-grid">
+										<div class="img-wrap">
+											<a href="@Url.Page("/Custommer/BookDetail", new { bookId = book.BookId })">
+												<img src="@Url.Content(@book.Image)" alt="@book.BookTitle" class="img-fluid">
+											</a>
+											<a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+										</div>
+										<figcaption class="info-wrap">
+											<div class="fix-height">
+												<a href="@Url.Page("/Custommer/BookDetail", new { bookId = book.BookId })" class="title">@book.BookTitle</a>
+												<div class="price-wrap mt-2">
+													<span class="price">@String.Format("{0:N0} VNĐ", book.Price) </span>
+												</div>
+											</div>
+											<div class="button-row">
+												<form method="post" asp-page-handler="AddToCart">
+													<input type="hidden" name="bookId" value="@book.BookId" />
+													<input type="hidden" name="categoryId" value="@book.CategoryId" />
+													<input type="hidden" name="pageNumber" value="@Model.CurrentPage" />
+													<input type="hidden" name="type" value="buy" />
+													<button type="submit" class="btn btn-block btn-primary">Buy</button>
+												</form>
+
+												<form method="post" asp-page-handler="AddToCart">
+													<input type="hidden" name="bookId" value="@book.BookId" />
+													<input type="hidden" name="categoryId" value="@book.CategoryId" />
+													<input type="hidden" name="pageNumber" value="@Model.CurrentPage" />
+													<input type="hidden" name="type" value="rent" />
+													<button style="background-color:indianred" type="submit" class="btn btn-block btn-primary">Rent</button>
+												</form>
+											</div>
+										</figcaption>
+									</figure>
+								</div>
 							}
-						</div><!--grid-->
+
+						</div>
+
+
+						<nav class="mt-4" aria-label="Page navigation sample">
+							<ul class="pagination">
+								<li class="page-item @(Model.PagingInfo.CurrentPage == 1 ? "disabled" : "")">
+									<a class="page-link" asp-page="ListBook" asp-route-categoryId="@Model.CurrentCategoryId" asp-route-pageNumber="@(Model.PagingInfo.CurrentPage - 1)">Previous</a>
+								</li>
+								@for (int i = 1; i <= Model.PagingInfo.TotalPages; i++)
+								{
+									<li class="page-item @(Model.PagingInfo.CurrentPage == i ? "active" : "")">
+										<a class="page-link" asp-page="ListBook" asp-route-categoryId="@Model.CurrentCategoryId" asp-route-pageNumber="@i">@i</a>
+									</li>
+								}
+								<li class="page-item @(Model.PagingInfo.CurrentPage == Model.PagingInfo.TotalPages ? "disabled" : "")">
+									<a class="page-link" asp-page="ListBook" asp-route-categoryId="@Model.CurrentCategoryId" asp-route-pageNumber="@(Model.PagingInfo.CurrentPage + 1)">Next</a>
+								</li>
+							</ul>
+
+						</nav>
 					</div>
-				</div><!--inner-content-->
+
+				</main>
 			</div>
 		</div>
 	</section>
-
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
@@ -436,13 +450,11 @@
 		</div>
 	</div>
 
-<script src="~/js/jquery-1.11.0.min.js"></script>
+	<script src="~/js/jquery-1.11.0.min.js"></script>
 	<script src="~/https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-		crossorigin="anonymous"></script>
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"></script>
 	<script src="~/js/plugins.js"></script>
 	<script src="~/js/script.js"></script>
-
 </body>
-
 </html>
