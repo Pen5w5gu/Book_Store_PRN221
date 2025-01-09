@@ -82,7 +82,7 @@ namespace DemoPRN1.Pages.Custommer
 			TempData["CartCount"] = cartItems.Count;
 
 
-			Books = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+			Books = await query.Where(X => X.Status == true).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
 			return Page();
 		}
 	}
